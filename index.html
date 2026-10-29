@@ -988,7 +988,7 @@ footer h4 {margin-bottom:12px}
     </div>
 
     <div class="copyright">
-      © 2026 NOXA — Projet fondé par Léa.<br>
+      © 2026 NOXA — Projet fondé par Lea.<br>
       Tous droits réservés. Version de présentation du projet.
     </div>
   </div>
@@ -996,44 +996,55 @@ footer h4 {margin-bottom:12px}
 
 <!-- MODALE CONNEXION -->
 
+
 <div class="modal-backdrop" id="loginModal" onclick="outsideClose(event,'loginModal')">
   <div class="modal">
     <button class="close-modal" onclick="closeModal('login')">×</button>
     <span class="eyebrow">BON RETOUR</span>
     <h2>Connexion à NOXA</h2>
     <p>Retrouve ton univers et tes communautés.</p>
-    <form onsubmit="fakeAccount(event)">
-      <input type="email" placeholder="Adresse e-mail" required>
-      <input type="password" placeholder="Mot de passe" required>
+
+    <form id="loginForm">
+      <input id="loginEmail" type="email" placeholder="Adresse e-mail" required>
+      <input id="loginPassword" type="password" placeholder="Mot de passe" required>
       <button class="btn btn-primary" type="submit">Se connecter</button>
     </form>
-    <p style="margin-top:17px">Pas encore de compte ? <a href="#" onclick="switchModal('login','register')" class="gradient">Inscris-toi.</a></p>
-    <div class="notice">La connexion réelle sera activée après installation du système de comptes.</div>
+
+    <p style="margin-top:17px">
+      Pas encore de compte ?
+      <a href="#" onclick="switchModal('login','register')" class="gradient">Inscris-toi.</a>
+    </p>
   </div>
 </div>
 
 <!-- MODALE INSCRIPTION -->
+
 
 <div class="modal-backdrop" id="registerModal" onclick="outsideClose(event,'registerModal')">
   <div class="modal">
     <button class="close-modal" onclick="closeModal('register')">×</button>
     <span class="eyebrow">REJOINS L'UNIVERS</span>
     <h2>Créer un compte</h2>
-    <p>Prépare ton arrivée dans NOXA.</p>
-    <form onsubmit="fakeAccount(event)">
-      <input type="text" placeholder="Nom d'utilisateur" required>
-      <input type="email" placeholder="Adresse e-mail" required>
-      <input type="password" placeholder="Mot de passe" minlength="8" required>
-      <input type="password" placeholder="Confirmer le mot de passe" minlength="8" required>
+    <p>Bienvenue dans la communauté NOXA.</p>
+
+    <form id="registerForm">
+      <input id="registerUsername" type="text" placeholder="Nom d'utilisateur" minlength="3" maxlength="24" required>
+      <input id="registerEmail" type="email" placeholder="Adresse e-mail" required>
+      <input id="registerPassword" type="password" placeholder="Mot de passe (8 caractères minimum)" minlength="8" required>
+      <input id="confirmPassword" type="password" placeholder="Confirmer le mot de passe" minlength="8" required>
+
       <button class="btn btn-primary" type="submit">Créer mon compte</button>
     </form>
-    <p style="margin-top:17px">Déjà membre ? <a href="#" onclick="switchModal('register','login')" class="gradient">Connecte-toi.</a></p>
-    <div class="notice">Ce formulaire est une maquette. Il ne crée pas encore de compte et n'enregistre aucune donnée.</div>
+
+    <p style="margin-top:17px">
+      Déjà membre ?
+      <a href="#" onclick="switchModal('register','login')" class="gradient">Connecte-toi.</a>
+    </p>
   </div>
 </div>
 
 <div class="toast" id="toast"></div>
-
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script>
 function toggleMenu() {
   document.getElementById("navLinks").classList.toggle("open");
@@ -1071,10 +1082,136 @@ function switchModal(from,to) {
   openModal(to);
 }
 
-function fakeAccount(event) {
+
+// ======================================
+// NOXA - CONNEXION SUPABASE
+// ======================================
+
+const SUPABASE_URL = "https://vamscbypqpkrildsnqgj.supabase.co";
+
+// Remplace cette valeur par ta Publishable key
+const SUPABASE_KEY = "sb_publishable_h-Y-A5Q6n4eWxvh-X1WYcg_2R6kxpMN";
+
+const noxaSupabase = window.supabase.createClient(
+  SUPABASE_URL,
+  SUPABASE_KEY
+);
+
+// ======================================
+// INSCRIPTION
+// ======================================
+
+document.getElementById("registerForm").addEventListener("submit", async (event) => {
   event.preventDefault();
-  showToast("Les inscriptions et connexions seront activées après connexion à la base de données.");
-  closeAllModals();
+
+  const username = document.getElementById("registerUsername").value.trim();
+  const email = document.getElementById("registerEmail").value.trim();
+  const password = document.getElementById("registerPassword").value;
+  const confirmation = document.getElementById("confirmPassword").value;
+
+  if (password !== confirmation) {
+    showToast("Les deux mots de passe ne correspondent pas.");
+    return;
+  }
+
+  if (!/^[a-zA-Z0-9_]{3,24}$/.test(username)) {
+    showToast("Ton pseudo doit contenir 3 à 24 caractères : lettres, chiffres ou _.");
+    return;
+  }
+
+  const button = event.currentTarget.querySelector("button[type='submit']");
+  button.disabled = true;
+  button.textContent = "Création du compte...";
+
+  try {
+    const { data, error } = await noxaSupabase.auth.signUp({
+      email: email,
+      password: password,
+      options: {
+        emailRedirectTo: window.location.origin + window.location.pathname,
+        data: {
+          username: username,
+          display_name: username
+        }
+      }
+    });
+
+    if (error) throw error;
+
+    closeAllModals();
+
+    if (data.session) {
+      showToast("Bienvenue sur NOXA ! Ton compte est créé.");
+    } else {
+      showToast("Compte créé ! Vérifie ta boîte e-mail pour confirmer ton inscription.");
+    }
+
+    event.currentTarget.reset();
+
+  } catch (error) {
+    showToast("Inscription impossible : " + error.message);
+  } finally {
+    button.disabled = false;
+    button.textContent = "Créer mon compte";
+  }
+});
+
+// ======================================
+// CONNEXION
+// ======================================
+
+document.getElementById("loginForm").addEventListener("submit", async (event) => {
+  event.preventDefault();
+
+  const email = document.getElementById("loginEmail").value.trim();
+  const password = document.getElementById("loginPassword").value;
+
+  const button = event.currentTarget.querySelector("button[type='submit']");
+  button.disabled = true;
+  button.textContent = "Connexion...";
+
+  try {
+    const { data, error } = await noxaSupabase.auth.signInWithPassword({
+      email: email,
+      password: password
+    });
+
+    if (error) throw error;
+
+    closeAllModals();
+    event.currentTarget.reset();
+
+    showToast("Bienvenue de nouveau sur NOXA !");
+
+  } catch (error) {
+    showToast("Connexion impossible : " + error.message);
+  } finally {
+    button.disabled = false;
+    button.textContent = "Se connecter";
+  }
+});
+
+// ======================================
+// ÉTAT DE CONNEXION
+// ======================================
+
+async function checkNoxaSession() {
+  const { data, error } = await noxaSupabase.auth.getSession();
+
+  if (error) {
+    console.error(error);
+    return;
+  }
+
+  if (data.session) {
+    console.log("Membre connecté :", data.session.user.email);
+  } else {
+    console.log("Aucun membre connecté.");
+  }
+}
+
+checkNoxaSession();
+
 }
 
 let toastTimer;
