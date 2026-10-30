@@ -1,0 +1,1252 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-9V1X4ZW8T5"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-9V1X4ZW8T5');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#090711">
+<meta name="description" content="NOXA : ton monde, tes liens, ton espace. Un réseau social imaginé pour partager, créer et se retrouver.">
+<title>NOXA — Ton monde. Tes liens. Ton espace.</title>
+
+<style>
+:root {
+  --bg:#090711;
+  --bg2:#100c19;
+  --panel:#171222;
+  --panel2:#21182f;
+  --line:#342541;
+  --purple:#a45cff;
+  --purple2:#7738cb;
+  --pink:#e85dc2;
+  --white:#fffaff;
+  --muted:#b2a5bd;
+  --green:#72d8a7;
+  --radius:18px;
+}
+
+* {box-sizing:border-box;margin:0;padding:0}
+html {scroll-behavior:smooth}
+body {
+  background:var(--bg);
+  color:var(--white);
+  font-family:Inter,Arial,sans-serif;
+  line-height:1.6;
+}
+button,input,textarea {font:inherit}
+button,a {cursor:pointer}
+a {color:inherit;text-decoration:none}
+button {color:inherit}
+img {max-width:100%}
+.container {width:min(1120px,92%);margin:auto}
+.gradient {
+  background:linear-gradient(100deg,#c18bff,#f17dcf);
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+}
+.section {padding:95px 0}
+.section-dark {background:#0d0a15}
+.eyebrow {
+  color:#d19aff;
+  font-size:11px;
+  font-weight:800;
+  letter-spacing:3px;
+}
+.section-heading {
+  font-size:clamp(30px,5vw,45px);
+  line-height:1.2;
+  margin:13px 0;
+}
+.section-intro {
+  max-width:680px;
+  color:var(--muted);
+  margin-bottom:40px;
+}
+.btn {
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  border:0;
+  border-radius:11px;
+  padding:13px 21px;
+  font-weight:750;
+  transition:.2s;
+}
+.btn:hover {transform:translateY(-2px);opacity:.9}
+.btn-primary {
+  background:linear-gradient(110deg,var(--purple2),var(--pink));
+  color:white;
+}
+.btn-outline {
+  background:transparent;
+  border:1px solid #78509b;
+  color:white;
+}
+.btn-soft {
+  background:#2a1c3b;
+  color:#e3c7ff;
+}
+.tag {
+  display:inline-block;
+  color:#e2baff;
+  background:#2c1d3e;
+  padding:6px 11px;
+  border-radius:30px;
+  font-size:11px;
+  font-weight:700;
+}
+header {
+  position:sticky;
+  top:0;
+  z-index:50;
+  background:rgba(9,7,17,.93);
+  backdrop-filter:blur(15px);
+  border-bottom:1px solid #30243c;
+}
+.navbar {
+  height:76px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:20px;
+}
+.logo {
+  font-size:29px;
+  letter-spacing:5px;
+  font-weight:950;
+}
+.logo span {color:var(--purple)}
+.nav-links {
+  display:flex;
+  align-items:center;
+  gap:24px;
+}
+.nav-links a {
+  color:#c3b6ce;
+  font-size:13px;
+  transition:.2s;
+}
+.nav-links a:hover {color:#e4aaff}
+.nav-actions {display:flex;gap:9px}
+.menu-toggle {
+  display:none;
+  background:#21182f;
+  border:1px solid var(--line);
+  border-radius:9px;
+  padding:9px 13px;
+}
+.hero {
+  min-height:650px;
+  display:flex;
+  align-items:center;
+  position:relative;
+  overflow:hidden;
+  background:
+    radial-gradient(ellipse at 78% 40%,#54266c 0,transparent 35%),
+    radial-gradient(ellipse at 15% 75%,#291640 0,transparent 40%),
+    #090711;
+}
+.hero-content {max-width:700px;padding:90px 0;position:relative;z-index:2}
+.hero h1 {
+  font-size:clamp(45px,8vw,83px);
+  line-height:1.02;
+  margin:22px 0;
+  letter-spacing:-3px;
+}
+.hero p {
+  color:#c9bad3;
+  font-size:17px;
+  max-width:600px;
+  margin-bottom:28px;
+}
+.hero-actions {display:flex;flex-wrap:wrap;gap:12px}
+.hero-glow {
+  position:absolute;
+  right:-130px;
+  top:90px;
+  width:500px;
+  height:500px;
+  border:1px solid #71419a;
+  border-radius:50%;
+  box-shadow:0 0 100px #8539b533,inset 0 0 100px #8539b522;
+}
+.hero-glow:before,.hero-glow:after {
+  content:"";
+  position:absolute;
+  inset:50px;
+  border:1px solid #9d5bd755;
+  border-radius:50%;
+}
+.hero-glow:after {inset:110px}
+.hero-symbol {
+  position:absolute;
+  right:130px;
+  top:205px;
+  font-size:120px;
+  color:#e0a3ff;
+  opacity:.45;
+}
+.stats {
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:15px;
+  margin-top:55px;
+  max-width:620px;
+}
+.stat {
+  border-left:2px solid var(--purple);
+  padding-left:15px;
+}
+.stat strong {font-size:20px;display:block}
+.stat small {color:var(--muted);font-size:11px}
+.cards {
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:18px;
+}
+.card {
+  background:linear-gradient(145deg,#1c1528,#110e19);
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  padding:25px;
+  transition:.25s;
+}
+.card:hover {
+  transform:translateY(-5px);
+  border-color:#8654b0;
+}
+.card-icon {font-size:33px;margin-bottom:15px}
+.card h3 {font-size:18px;margin-bottom:9px}
+.card p {color:var(--muted);font-size:13px}
+.story-layout {
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  align-items:center;
+  gap:55px;
+}
+.story-art {
+  min-height:410px;
+  border-radius:25px;
+  background:
+    radial-gradient(circle at 50% 40%,#8a4aab66,transparent 42%),
+    linear-gradient(140deg,#21132e,#3a1e4d,#120d1c);
+  border:1px solid #55376d;
+  display:grid;
+  place-items:center;
+  position:relative;
+  overflow:hidden;
+}
+.story-art .moon {
+  font-size:125px;
+  filter:drop-shadow(0 0 30px #d28bff);
+}
+.story-art .art-caption {
+  position:absolute;
+  bottom:25px;
+  text-align:center;
+  color:#e5c6f7;
+  letter-spacing:4px;
+  font-size:11px;
+}
+.story-copy p {
+  color:#c3b6ce;
+  font-size:14px;
+  margin:15px 0;
+}
+.values {
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
+  gap:12px;
+}
+.value {
+  background:#171222;
+  border:1px solid var(--line);
+  border-radius:14px;
+  padding:20px;
+  text-align:center;
+}
+.value span {font-size:26px;display:block;margin-bottom:8px}
+.value strong {font-size:13px}
+.feature-number {
+  font-size:12px;
+  color:#d79cff;
+  margin-bottom:12px;
+  letter-spacing:2px;
+}
+.platform-preview {
+  background:linear-gradient(120deg,#21152f,#321b44);
+  border:1px solid #604078;
+  border-radius:23px;
+  padding:35px;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:25px;
+  align-items:center;
+}
+.preview-window {
+  background:#0e0b16;
+  border:1px solid #563c6a;
+  border-radius:16px;
+  padding:17px;
+}
+.preview-bar {
+  display:flex;
+  gap:5px;
+  margin-bottom:17px;
+}
+.preview-bar i {
+  width:7px;height:7px;
+  background:#9b5be1;
+  border-radius:50%;
+}
+.preview-post {
+  background:#1b1525;
+  border-radius:10px;
+  padding:15px;
+  margin:10px 0;
+}
+.preview-lines {
+  height:7px;
+  border-radius:10px;
+  background:#49365b;
+  margin:9px 0;
+}
+.preview-lines.short {width:55%}
+.shop-highlight {
+  background:
+    radial-gradient(circle at 85% 20%,#71347f,transparent 35%),
+    linear-gradient(120deg,#21142f,#371d4a);
+  border:1px solid #67417d;
+  border-radius:22px;
+  padding:35px;
+}
+.price {
+  color:#e9b5ff;
+  font-size:27px;
+  font-weight:850;
+  margin:15px 0;
+}
+.product-card {text-align:center}
+.product-card .card-icon {font-size:40px}
+.product-card .btn {width:100%;margin-top:12px}
+.faq details {
+  background:#171222;
+  border:1px solid var(--line);
+  border-radius:12px;
+  padding:17px 20px;
+  margin:10px 0;
+}
+.faq summary {cursor:pointer;font-weight:700}
+.faq details p {color:var(--muted);font-size:13px;margin-top:13px}
+.cta {
+  text-align:center;
+  padding:75px 25px;
+  border:1px solid #65427b;
+  border-radius:25px;
+  background:radial-gradient(circle at 50% 0,#55246d,transparent 65%),#171020;
+}
+.cta h2 {font-size:clamp(32px,5vw,48px);margin:15px 0}
+.cta p {color:var(--muted);margin-bottom:23px}
+footer {
+  background:#08060e;
+  border-top:1px solid var(--line);
+  padding:45px 0 25px;
+}
+.footer-grid {
+  display:grid;
+  grid-template-columns:2fr 1fr 1fr;
+  gap:35px;
+  margin-bottom:35px;
+}
+footer p,footer a {color:var(--muted);font-size:12px}
+footer h4 {margin-bottom:12px}
+.footer-links {display:grid;gap:9px}
+.copyright {
+  border-top:1px solid var(--line);
+  padding-top:20px;
+  text-align:center;
+  color:#786e84;
+  font-size:11px;
+}
+.modal-backdrop {
+  position:fixed;
+  inset:0;
+  background:#000c;
+  z-index:100;
+  display:none;
+  place-items:center;
+  padding:20px;
+}
+.modal-backdrop.open {display:grid}
+.modal {
+  width:min(430px,100%);
+  background:#171222;
+  border:1px solid #68458a;
+  border-radius:19px;
+  padding:27px;
+  position:relative;
+}
+.modal h2 {margin-bottom:8px}
+.modal p {color:var(--muted);font-size:13px;margin-bottom:20px}
+.modal input {
+  display:block;
+  width:100%;
+  background:#0c0913;
+  border:1px solid var(--line);
+  padding:13px;
+  border-radius:9px;
+  color:white;
+  margin:10px 0;
+}
+.modal .btn {width:100%;margin-top:10px}
+.close-modal {
+  position:absolute;
+  right:15px;
+  top:12px;
+  border:0;
+  background:transparent;
+  font-size:22px;
+  color:#c7b6d4;
+}
+.toast {
+  position:fixed;
+  z-index:150;
+  bottom:20px;
+  right:20px;
+  background:#2c1c3d;
+  border:1px solid #8351a8;
+  padding:14px 20px;
+  border-radius:12px;
+  display:none;
+  max-width:330px;
+}
+.toast.show {display:block}
+@media(max-width:850px) {
+  .nav-links {
+    display:none;
+    position:absolute;
+    top:76px;
+    left:0;right:0;
+    background:#100c19;
+    padding:20px;
+    border-bottom:1px solid var(--line);
+    flex-direction:column;
+    align-items:flex-start;
+  }
+  .nav-links.open {display:flex}
+  .menu-toggle {display:block}
+  .nav-actions .btn-outline {display:none}
+  .hero-glow {right:-280px;opacity:.5}
+  .story-layout {grid-template-columns:1fr;gap:25px}
+  .platform-preview {grid-template-columns:1fr}
+  .footer-grid {grid-template-columns:1fr 1fr}
+}
+@media(max-width:560px) {
+  .section {padding:65px 0}
+  .hero {min-height:570px}
+  .hero h1 {letter-spacing:-1px}
+  .hero-symbol {right:25px;top:100px;font-size:75px}
+  .hero-glow {top:80px}
+  .stats {gap:8px}
+  .stat strong {font-size:16px}
+  .stat small {font-size:9px}
+  .story-art {min-height:290px}
+  .footer-grid {grid-template-columns:1fr}
+  .platform-preview,.shop-highlight {padding:22px}
+}
+
+/* ESPACE MEMBRE NOXA */
+.member-area{display:none;padding:55px 0;background:linear-gradient(180deg,#100b19,#090711)}
+.member-area.visible{display:block}
+.member-head{display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap;margin-bottom:25px}
+.member-layout{display:grid;grid-template-columns:230px minmax(0,1fr);gap:22px;align-items:start}
+.member-sidebar,.member-panel,.post-card{background:linear-gradient(145deg,#1c1528,#110e19);border:1px solid var(--line);border-radius:18px;padding:20px}
+.member-sidebar{position:sticky;top:95px}
+.member-user{display:flex;align-items:center;gap:12px;margin-bottom:20px}
+.avatar{width:44px;height:44px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(135deg,#7738cb,#e85dc2);font-weight:900;color:#fff;flex-shrink:0}
+.member-user small,.post-meta small{display:block;color:var(--muted);font-size:11px}
+.member-nav{display:grid;gap:8px}
+.member-nav button{border:1px solid transparent;background:transparent;text-align:left;padding:11px 12px;border-radius:10px;color:#d8c9e4}
+.member-nav button.active,.member-nav button:hover{background:#2a1c3b;border-color:#55376d;color:#fff}
+.member-content{min-width:0}
+.member-panel{margin-bottom:18px}
+.member-panel h2{font-size:23px;margin-bottom:5px}
+.member-panel>p{color:var(--muted);font-size:13px;margin-bottom:16px}
+.member-form{display:grid;gap:10px}
+.member-form input,.member-form textarea,.comment-form input,.message-form input{width:100%;background:#0c0913;border:1px solid var(--line);padding:12px;border-radius:10px;color:#fff;outline:none}
+.member-form textarea{min-height:95px;resize:vertical}
+.member-form input:focus,.member-form textarea:focus,.comment-form input:focus{border-color:var(--purple)}
+.member-form .btn{justify-self:start}
+.feed-list{display:grid;gap:14px}
+.post-top{display:flex;align-items:center;gap:10px;margin-bottom:12px}
+.post-body{white-space:pre-wrap;overflow-wrap:anywhere;color:#f5eefb;margin:12px 0}
+.post-actions{display:flex;gap:9px;flex-wrap:wrap;border-top:1px solid var(--line);padding-top:12px;margin-top:12px}
+.post-actions button{border:1px solid var(--line);background:#21182f;border-radius:9px;padding:8px 11px;color:#d9c8e7;font-size:12px}
+.post-actions button.liked{color:#ff8acb;border-color:#a84b8c}
+.comment-list{margin-top:12px;display:grid;gap:8px}
+.comment{padding:9px 11px;background:#100c19;border-radius:9px;font-size:12px;color:#d8cde0}
+.comment-form{display:flex;gap:8px;margin-top:10px}
+.comment-form button{border:0;background:#6935a0;padding:0 13px;border-radius:9px;color:white}
+.profile-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.profile-stat{background:#100c19;border:1px solid var(--line);border-radius:12px;padding:14px}
+.profile-stat strong{display:block;font-size:20px}
+.profile-stat small{color:var(--muted)}
+.empty-state{text-align:center;padding:28px;color:var(--muted);border:1px dashed #4a365b;border-radius:14px}
+.member-top-actions{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+@media(max-width:760px){.member-layout{grid-template-columns:1fr}.member-sidebar{position:static}.member-nav{grid-template-columns:repeat(3,1fr)}.member-nav button{text-align:center;padding:9px 5px;font-size:12px}}
+@media(max-width:480px){.profile-grid{grid-template-columns:1fr}.comment-form{flex-direction:column}.comment-form button{padding:10px}}
+
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="container navbar">
+    <a class="logo" href="#accueil">NOXA<span>✦</span></a>
+
+    <nav class="nav-links" id="navLinks">
+      <a href="#accueil">Accueil</a>
+      <a href="#histoire">Notre histoire</a>
+      <a href="#fonctionnalites">Fonctionnalités</a>
+      <a href="#securite">Sécurité</a>
+      <a href="#boutique">Boutique</a>
+      <a href="#mon-espace" id="memberNavLink" style="display:none">Mon espace</a>
+    </nav>
+
+    <div class="nav-actions">
+      <button class="btn btn-outline" onclick="openModal('login')">Connexion</button>
+      <button class="btn btn-primary" onclick="openModal('register')">Rejoindre NOXA</button>
+      <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+    </div>
+  </div>
+</header>
+
+<!-- ACCUEIL -->
+
+<main>
+
+<section class="hero" id="accueil">
+  <div class="container">
+    <div class="hero-content">
+      <span class="tag">UN NOUVEL UNIVERS NUMÉRIQUE</span>
+      <h1>Ton monde.<br><span class="gradient">Tes liens.</span><br>Ton espace.</h1>
+      <p>
+        Bienvenue dans NOXA, un réseau social imaginé pour partager
+        tes passions, publier tes moments, créer des communautés
+        et rencontrer de nouvelles personnes.
+      </p>
+
+      <div class="hero-actions">
+        <button class="btn btn-primary" onclick="openModal('register')">
+          Rejoindre NOXA ✦
+        </button>
+        <a href="#histoire" class="btn btn-outline">Découvrir notre histoire</a>
+      </div>
+
+      <div class="stats">
+        <div class="stat"><strong>Un univers</strong><small>À construire ensemble</small></div>
+        <div class="stat"><strong>Une vision</strong><small>Respect et créativité</small></div>
+        <div class="stat"><strong>Une ambition</strong><small>Créer des liens</small></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-glow"></div>
+  <div class="hero-symbol">✦</div>
+</section>
+
+<!-- ESPACE MEMBRE : visible après connexion -->
+<section class="member-area" id="mon-espace">
+  <div class="container">
+    <div class="member-head">
+      <div><span class="eyebrow">TON UNIVERS NOXA</span><h2 class="section-heading">Bienvenue dans <span class="gradient">ton espace.</span></h2><p style="color:var(--muted);font-size:13px">Partage tes idées, découvre les publications et échange avec la communauté.</p></div>
+      <div class="member-top-actions"><button class="btn btn-outline" onclick="loadFeed()">Actualiser</button><button class="btn btn-soft" onclick="signOutNoxa()">Déconnexion</button></div>
+    </div>
+    <div class="member-layout">
+      <aside class="member-sidebar">
+        <div class="member-user"><div class="avatar" id="sideAvatar">N</div><div><strong id="sideName">Membre NOXA</strong><small id="sideHandle">@membre</small></div></div>
+        <nav class="member-nav">
+          <button class="active" data-tab="feed" onclick="showMemberTab('feed',this)">✦ Fil d'actualité</button>
+          <button data-tab="profile" onclick="showMemberTab('profile',this)">◉ Mon profil</button>
+          <button data-tab="about" onclick="showMemberTab('about',this)">☾ À propos</button>
+        </nav>
+      </aside>
+      <div class="member-content">
+        <div id="feedTab">
+          <div class="member-panel">
+            <h2>Quoi de neuf ?</h2><p>Publie un message pour la communauté NOXA.</p>
+            <form class="member-form" id="postForm"><textarea id="postContent" maxlength="2000" placeholder="Exprime-toi… (2 000 caractères maximum)" required></textarea><button class="btn btn-primary" type="submit">Publier ✦</button></form>
+          </div>
+          <div class="feed-list" id="feedList"><div class="empty-state">Connecte-toi pour découvrir le fil d'actualité.</div></div>
+        </div>
+        <div id="profileTab" hidden>
+          <div class="member-panel"><h2>Mon profil</h2><p>Personnalise les informations visibles sur ton profil.</p>
+            <form class="member-form" id="profileForm"><input id="profileDisplayName" maxlength="40" placeholder="Nom affiché"><textarea id="profileBio" maxlength="250" placeholder="Ta bio (250 caractères maximum)"></textarea><button class="btn btn-primary" type="submit">Enregistrer mon profil</button></form>
+          </div>
+          <div class="member-panel"><h2>Mon activité</h2><div class="profile-grid"><div class="profile-stat"><strong id="myPostCount">0</strong><small>Publications</small></div><div class="profile-stat"><strong id="myLikeCount">0</strong><small>J'aime reçus</small></div></div></div>
+        </div>
+        <div id="aboutTab" hidden><div class="member-panel"><h2>Bienvenue chez NOXA</h2><p>NOXA est un projet indépendant qui souhaite réunir partage, créativité et communautés dans un même univers. Respecte les autres membres et ne publie pas d'informations personnelles sensibles.</p><p>Les outils de signalement, de modération avancée, les stories éphémères et les salons de discussion ne sont pas encore activés dans cette première version.</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRESENTATION -->
+
+<section class="section">
+  <div class="container">
+    <span class="eyebrow">BIEN PLUS QU'UN RÉSEAU SOCIAL</span>
+    <h2 class="section-heading">Un seul endroit.<br><span class="gradient">Des possibilités infinies.</span></h2>
+    <p class="section-intro">
+      NOXA rassemble plusieurs façons de communiquer, de créer,
+      de partager et de découvrir. Un espace numérique pensé
+      autour des passions et des communautés.
+    </p>
+
+    <div class="cards">
+      <article class="card">
+        <div class="card-icon">📸</div>
+        <h3>Partager</h3>
+        <p>Publie tes photos, tes vidéos, tes idées et tes moments du quotidien.</p>
+      </article>
+      <article class="card">
+        <div class="card-icon">💬</div>
+        <h3>Communiquer</h3>
+        <p>Discute en privé, crée des groupes et échange avec tes communautés.</p>
+      </article>
+      <article class="card">
+        <div class="card-icon">🎮</div>
+        <h3>Se retrouver</h3>
+        <p>Découvre des univers, organise des événements et partage tes passions.</p>
+      </article>
+      <article class="card">
+        <div class="card-icon">🎥</div>
+        <h3>Créer en direct</h3>
+        <p>Imagine des lives, des diffusions gaming et des espaces audio.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- HISTOIRE -->
+
+<section class="section section-dark" id="histoire">
+  <div class="container story-layout">
+    <div class="story-art">
+      <div class="moon">☾</div>
+      <div class="art-caption">A PROJECT WITH A PURPOSE</div>
+    </div>
+
+    <div class="story-copy">
+      <span class="eyebrow">DERRIÈRE NOXA</span>
+      <h2 class="section-heading">Une idée.<br><span class="gradient">Une histoire.</span><br>Une ambition.</h2>
+
+      <p>
+        Je m'appelle Lea, j'ai 23 ans et je suis la fondatrice
+        de NOXA.
+      </p>
+
+      <p>
+        NOXA est né d'une envie personnelle : imaginer un espace
+        numérique dans lequel chacun pourrait s'exprimer, partager
+        ses passions et rencontrer des personnes sans avoir peur
+        d'être jugé ou humilié.
+      </p>
+
+      <p>
+        Ayant moi-même connu des expériences difficiles liées
+        au harcèlement sur Internet, j'ai compris à quel point
+        les mots et les comportements en ligne peuvent blesser.
+      </p>
+
+      <p>
+        J'ai alors imaginé un réseau social différent, construit
+        autour du respect, de la créativité, de l'authenticité
+        et du partage.
+      </p>
+
+      <p>
+        Mon ambition est de réunir plusieurs univers dans une
+        seule plateforme : les publications, les photos, les vidéos,
+        les messages, les communautés, les lives et bien plus encore.
+      </p>
+
+      <p>
+        NOXA n'est pas simplement un réseau social.
+        C'est un projet que je souhaite faire grandir,
+        fonctionnalité après fonctionnalité.
+      </p>
+
+      <p><strong>Personne ne devrait avoir à subir le harcèlement
+      pour avoir le droit d'exister sur Internet.</strong></p>
+
+      <p class="gradient"><strong>Bienvenue dans NOXA.</strong></p>
+    </div>
+  </div>
+</section>
+
+<!-- VALEURS -->
+
+<section class="section">
+  <div class="container">
+    <span class="eyebrow">NOS FONDATIONS</span>
+    <h2 class="section-heading">Les valeurs de <span class="gradient">NOXA.</span></h2>
+    <p class="section-intro">
+      L'identité de NOXA repose sur des principes qui devront
+      guider son développement et sa communauté.
+    </p>
+
+    <div class="values">
+      <div class="value"><span>💜</span><strong>Bienveillance</strong></div>
+      <div class="value"><span>🤝</span><strong>Respect</strong></div>
+      <div class="value"><span>🎨</span><strong>Créativité</strong></div>
+      <div class="value"><span>🌙</span><strong>Authenticité</strong></div>
+      <div class="value"><span>🌍</span><strong>Solidarité</strong></div>
+      <div class="value"><span>🛡️</span><strong>Sécurité</strong></div>
+    </div>
+  </div>
+</section>
+
+<!-- FONCTIONNALITES -->
+
+<section class="section section-dark" id="fonctionnalites">
+  <div class="container">
+    <span class="eyebrow">L'UNIVERS NOXA</span>
+    <h2 class="section-heading">Tout ce dont tu as besoin.<br><span class="gradient">Au même endroit.</span></h2>
+    <p class="section-intro">
+      Voici les fonctionnalités prévues pour le réseau social NOXA.
+      Elles seront développées progressivement.
+    </p>
+
+    <div class="cards">
+      <article class="card">
+        <div class="feature-number">01 · PROFIL</div>
+        <div class="card-icon">👤</div>
+        <h3>Ton identité</h3>
+        <p>Photo de profil, couverture, pseudonyme, biographie, centres d'intérêt et abonnements.</p>
+      </article>
+
+      <article class="card">
+        <div class="feature-number">02 · PUBLICATIONS</div>
+        <div class="card-icon">📷</div>
+        <h3>Photos et vidéos</h3>
+        <p>Publie des textes, des photos, des vidéos et partage tes créations.</p>
+      </article>
+
+      <article class="card">
+        <div class="feature-number">03 · STORIES</div>
+        <div class="card-icon">✨</div>
+        <h3>Stories</h3>
+        <p>Partage des moments temporaires avec les personnes que tu choisis.</p>
+      </article>
+
+      <article class="card">
+        <div class="feature-number">04 · INTERACTIONS</div>
+        <div class="card-icon">💗</div>
+        <h3>Likes et commentaires</h3>
+        <p>Réagis aux publications, commente et échange avec les membres.</p>
+      </article>
+
+      <article class="card">
+        <div class="feature-number">05 · MESSAGERIE</div>
+        <div class="card-icon">✉️</div>
+        <h3>Messages privés</h3>
+        <p>Conversations individuelles, groupes, partage de médias et appels.</p>
+      </article>
+
+      <article class="card">
+        <div class="feature-number">06 · COMMUNAUTÉS</div>
+        <div class="card-icon">👥</div>
+        <h3>Groupes et salons</h3>
+        <p>Rejoins des espaces communautaires autour de tes centres d'intérêt.</p>
+      </article>
+
+      <article class="card">
+        <div class="feature-number">07 · AUDIO ET VIDÉO</div>
+        <div class="card-icon">🎧</div>
+        <h3>Appels</h3>
+        <p>Appels audio et vidéo privés ou en groupe.</p>
+      </article>
+
+      <article class="card">
+        <div class="feature-number">08 · DIRECT</div>
+        <div class="card-icon">🔴</div>
+        <h3>NOXA LIVE</h3>
+        <p>Lives caméra, gaming, partage d'écran et interactions en direct.</p>
+      </article>
+
+      <article class="card">
+        <div class="feature-number">09 · DÉCOUVERTE</div>
+        <div class="card-icon">🔎</div>
+        <h3>Explorer</h3>
+        <p>Découvre des membres, des publications et des communautés.</p>
+      </article>
+
+      <article class="card">
+        <div class="feature-number">10 · NOTIFICATIONS</div>
+        <div class="card-icon">🔔</div>
+        <h3>Notifications</h3>
+        <p>Retrouve tes messages, interactions, abonnements et actualités.</p>
+      </article>
+
+      <article class="card">
+        <div class="feature-number">11 · ÉVÉNEMENTS</div>
+        <div class="card-icon">🎉</div>
+        <h3>Événements</h3>
+        <p>Organise des rencontres numériques, des animations et des activités.</p>
+      </article>
+
+      <article class="card">
+        <div class="feature-number">12 · PERSONNALISATION</div>
+        <div class="card-icon">🎨</div>
+        <h3>Ton univers</h3>
+        <p>Personnalise ton profil, tes thèmes et ton expérience.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- APERCU RESEAU -->
+
+<section class="section">
+  <div class="container">
+    <div class="platform-preview">
+      <div>
+        <span class="eyebrow">L'ESPACE SOCIAL</span>
+        <h2 class="section-heading">Entre dans ton <span class="gradient">univers.</span></h2>
+        <p class="section-intro">
+          Une fois inscrit, chaque membre pourra retrouver son profil,
+          son fil d'actualité, ses conversations et ses communautés
+          dans un espace personnel.
+        </p>
+        <button class="btn btn-primary" onclick="openModal('register')">Créer mon compte</button>
+      </div>
+
+      <div class="preview-window">
+        <div class="preview-bar"><i></i><i></i><i></i></div>
+        <div class="preview-post">
+          <strong>💜 Bienvenue sur NOXA</strong>
+          <div class="preview-lines"></div>
+          <div class="preview-lines short"></div>
+        </div>
+        <div class="preview-post">
+          <strong>🌙 Ton univers</strong>
+          <div class="preview-lines"></div>
+          <div class="preview-lines short"></div>
+        </div>
+        <div class="preview-post">
+          <strong>✧ Tes communautés</strong>
+          <div class="preview-lines"></div>
+          <div class="preview-lines short"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECURITE -->
+
+<section class="section section-dark" id="securite">
+  <div class="container">
+    <span class="eyebrow">UNE COMMUNAUTÉ RESPONSABLE</span>
+    <h2 class="section-heading">Le respect n'est <span class="gradient">pas une option.</span></h2>
+    <p class="section-intro">
+      La sécurité doit être intégrée dès la conception de NOXA.
+      Les protections suivantes font partie des objectifs de développement.
+    </p>
+
+    <div class="cards">
+      <article class="card">
+        <div class="card-icon">🚫</div>
+        <h3>Blocage</h3>
+        <p>Permettre aux membres de bloquer les comptes avec lesquels ils ne souhaitent plus interagir.</p>
+      </article>
+      <article class="card">
+        <div class="card-icon">🚩</div>
+        <h3>Signalement</h3>
+        <p>Signaler des contenus, des messages ou des comportements inappropriés.</p>
+      </article>
+      <article class="card">
+        <div class="card-icon">🛡️</div>
+        <h3>Modération</h3>
+        <p>Mettre en place une équipe et des procédures de modération.</p>
+      </article>
+      <article class="card">
+        <div class="card-icon">🔐</div>
+        <h3>Confidentialité</h3>
+        <p>Contrôler la visibilité du profil, les interactions et les paramètres de compte.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- BOUTIQUE -->
+
+<section class="section" id="boutique">
+  <div class="container">
+    <span class="eyebrow">L'ÉCONOMIE NUMÉRIQUE</span>
+    <h2 class="section-heading">Bienvenue dans <span class="gradient">NOXA SHOP.</span></h2>
+    <p class="section-intro">
+      Des articles numériques pour personnaliser ton expérience,
+      soutenir les créateurs et enrichir ton univers.
+    </p>
+
+    <div class="shop-highlight">
+      <span class="tag">MONNAIE VIRTUELLE NOXA</span>
+      <h2 class="section-heading">Découvre les <span class="gradient">NOXA COINS.</span></h2>
+      <p class="section-intro">
+        Les coins pourront servir à acheter des stickers, des cadeaux,
+        des effets de profil et des éléments de personnalisation.
+      </p>
+    </div>
+
+    <div class="cards" style="margin-top:25px">
+      <article class="card product-card">
+        <div class="card-icon">💜</div>
+        <h3>Starter Pack</h3>
+        <p>100 NOXA COINS</p>
+        <div class="price">0,99 €</div>
+        <button class="btn btn-primary" onclick="paymentMessage()">Acheter</button>
+      </article>
+
+      <article class="card product-card">
+        <div class="card-icon">✨</div>
+        <h3>Popular Pack</h3>
+        <p>550 NOXA COINS</p>
+        <div class="price">4,99 €</div>
+        <button class="btn btn-primary" onclick="paymentMessage()">Acheter</button>
+      </article>
+
+      <article class="card product-card">
+        <div class="card-icon">🌌</div>
+        <h3>Galaxy Pack</h3>
+        <p>1 200 NOXA COINS</p>
+        <div class="price">9,99 €</div>
+        <button class="btn btn-primary" onclick="paymentMessage()">Acheter</button>
+      </article>
+
+      <article class="card product-card">
+        <div class="card-icon">👑</div>
+        <h3>Royal Pack</h3>
+        <p>7 000 NOXA COINS</p>
+        <div class="price">49,99 €</div>
+        <button class="btn btn-primary" onclick="paymentMessage()">Acheter</button>
+      </article>
+    </div>
+
+    <h2 class="section-heading" style="margin-top:65px">NOXA <span class="gradient">STICKERS.</span></h2>
+    <div class="cards">
+      <article class="card product-card">
+        <div class="card-icon">💗</div>
+        <h3>Love Pack</h3>
+        <p>Collection romantique</p>
+        <div class="price">100 Coins</div>
+        <button class="btn btn-outline" onclick="paymentMessage()">Découvrir</button>
+      </article>
+      <article class="card product-card">
+        <div class="card-icon">🌠</div>
+        <h3>Galaxy Pack</h3>
+        <p>Effets cosmiques</p>
+        <div class="price">150 Coins</div>
+        <button class="btn btn-outline" onclick="paymentMessage()">Découvrir</button>
+      </article>
+      <article class="card product-card">
+        <div class="card-icon">👑</div>
+        <h3>Royal Pack</h3>
+        <p>Collection exclusive</p>
+        <div class="price">250 Coins</div>
+        <button class="btn btn-outline" onclick="paymentMessage()">Découvrir</button>
+      </article>
+    </div>
+
+    <h2 class="section-heading" style="margin-top:65px">NOXA <span class="gradient">PREMIUM.</span></h2>
+    <div class="card product-card">
+      <div class="card-icon">💎</div>
+      <h3>NOXA Premium</h3>
+      <p>Une expérience enrichie avec des personnalisations et avantages exclusifs.</p>
+      <div class="price">4,99 € / mois</div>
+      <button class="btn btn-primary" onclick="paymentMessage()">Découvrir Premium</button>
+    </div>
+
+    <div class="notice">
+      Les tarifs présentés sont des propositions commerciales.
+      Les achats ne sont pas activés. Les paiements réels nécessiteront
+      un prestataire de paiement, un serveur sécurisé, une gestion
+      des remboursements et une configuration professionnelle.
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+
+<section class="section section-dark">
+  <div class="container">
+    <span class="eyebrow">QUESTIONS FRÉQUENTES</span>
+    <h2 class="section-heading">En savoir plus sur <span class="gradient">NOXA.</span></h2>
+
+    <div class="faq">
+      <details>
+        <summary>Qu'est-ce que NOXA ?</summary>
+        <p>NOXA est un projet de réseau social qui vise à réunir publications, vidéos, communautés, messagerie et contenus en direct dans une même plateforme.</p>
+      </details>
+      <details>
+        <summary>Qui a créé NOXA ?</summary>
+        <p>NOXA a été imaginé par Lea, sa fondatrice, qui souhaite construire un espace numérique tourné vers le partage, la créativité et le respect.</p>
+      </details>
+      <details>
+        <summary>Est-ce que NOXA est déjà disponible ?</summary>
+        <p>Le site présente le projet et ses fonctionnalités prévues. L'ouverture du réseau social nécessitera encore le développement et les tests de ses services.</p>
+      </details>
+      <details>
+        <summary>Comment fonctionneront les NOXA COINS ?</summary>
+        <p>Les membres pourront acheter des coins avec un paiement sécurisé, puis les utiliser pour obtenir des articles numériques compatibles avec les règles de la plateforme.</p>
+      </details>
+      <details>
+        <summary>Est-ce que les créateurs pourront gagner de l'argent ?</summary>
+        <p>Un programme de cadeaux et de rémunération pourra être étudié ultérieurement, avec les vérifications et obligations nécessaires.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- INSCRIPTION -->
+
+<section class="section">
+  <div class="container">
+    <div class="cta">
+      <span class="eyebrow">TON PROCHAIN UNIVERS T'ATTEND</span>
+      <h2>Prêt à découvrir <span class="gradient">NOXA ?</span></h2>
+      <p>Une nouvelle aventure numérique commence ici.</p>
+      <button class="btn btn-primary" onclick="openModal('register')">Rejoindre NOXA ✦</button>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="logo">NOXA<span>✦</span></div>
+        <p style="max-width:320px;margin-top:15px">
+          Un projet de réseau social imaginé autour du partage,
+          de la créativité, de l'authenticité et du respect.
+        </p>
+        <p style="margin-top:12px">Ton monde. Tes liens. Ton espace.</p>
+      </div>
+
+      <div>
+        <h4>Découvrir</h4>
+        <div class="footer-links">
+          <a href="#histoire">Notre histoire</a>
+          <a href="#fonctionnalites">Fonctionnalités</a>
+          <a href="#securite">Sécurité</a>
+          <a href="#boutique">Boutique</a>
+        </div>
+      </div>
+
+      <div>
+        <h4>Informations</h4>
+        <div class="footer-links">
+          <a href="#accueil">Accueil</a>
+          <a href="#securite">Nos engagements</a>
+          <a href="#boutique">NOXA Premium</a>
+          <a href="mailto:contact@noxa.example">Contact (adresse à configurer)</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="copyright">
+      © 2026 NOXA — Projet fondé par Lea.<br>
+      Tous droits réservés. Première version du projet NOXA.
+    </div>
+  </div>
+</footer>
+
+<!-- MODALE CONNEXION -->
+
+
+<div class="modal-backdrop" id="loginModal" onclick="outsideClose(event,'loginModal')">
+  <div class="modal">
+    <button class="close-modal" onclick="closeModal('login')">×</button>
+    <span class="eyebrow">BON RETOUR</span>
+    <h2>Connexion à NOXA</h2>
+    <p>Retrouve ton univers et tes communautés.</p>
+
+    <form id="loginForm">
+      <input id="loginEmail" type="email" placeholder="Adresse e-mail" required>
+      <input id="loginPassword" type="password" placeholder="Mot de passe" required>
+      <button class="btn btn-primary" type="submit">Se connecter</button>
+    </form>
+
+    <p style="margin-top:17px">
+      Pas encore de compte ?
+      <a href="#" onclick="switchModal('login','register')" class="gradient">Inscris-toi.</a>
+    </p>
+  </div>
+</div>
+  
+<!-- MODALE INSCRIPTION -->
+
+<div class="modal-backdrop" id="registerModal" onclick="outsideClose(event,'registerModal')">
+  <div class="modal">
+    <button class="close-modal" onclick="closeModal('register')">×</button>
+    <span class="eyebrow">REJOINS L'UNIVERS</span>
+    <h2>Créer un compte</h2>
+    <p>Bienvenue dans la communauté NOXA.</p>
+
+    <form id="registerForm">
+      <input id="registerUsername" type="text" placeholder="Nom d'utilisateur" minlength="3" maxlength="24" required>
+      <input id="registerEmail" type="email" placeholder="Adresse e-mail" required>
+      <input id="registerPassword" type="password" placeholder="Mot de passe (8 caractères minimum)" minlength="8" required>
+      <input id="confirmPassword" type="password" placeholder="Confirmer le mot de passe" minlength="8" required>
+
+      <button class="btn btn-primary" type="submit">Créer mon compte</button>
+    </form>
+
+    <p style="margin-top:17px">
+      Déjà membre ?
+      <a href="#" onclick="switchModal('register','login')" class="gradient">Connecte-toi.</a>
+    </p>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script>
+"use strict";
+
+// CONFIGURATION SUPABASE — la clé publishable peut être utilisée dans le navigateur.
+const SUPABASE_URL = "https://vamscbypqpkrildsnqgj.supabase.co";
+const SUPABASE_KEY = "sb_publishable_h-Y-A5Q6n4eWxvh-X1WYcg_2R6kxpMN";
+const noxaSupabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+let currentUser = null;
+let currentProfile = null;
+let toastTimer = null;
+
+function toggleMenu(){document.getElementById("navLinks").classList.toggle("open");}
+document.querySelectorAll(".nav-links a").forEach(link=>link.addEventListener("click",()=>document.getElementById("navLinks").classList.remove("open")));
+function openModal(type){closeAllModals();const el=document.getElementById(type+"Modal");if(el)el.classList.add("open");}
+function closeModal(type){const el=document.getElementById(type+"Modal");if(el)el.classList.remove("open");}
+function closeAllModals(){document.querySelectorAll(".modal-backdrop").forEach(el=>el.classList.remove("open"));}
+function outsideClose(event,id){if(event.target.id===id)document.getElementById(id).classList.remove("open");}
+function switchModal(from,to){closeModal(from);openModal(to);}
+function showToast(message){const toast=document.getElementById("toast");toast.textContent=message;toast.classList.add("show");clearTimeout(toastTimer);toastTimer=setTimeout(()=>toast.classList.remove("show"),4500);}
+function safeText(value){return String(value??"").replace(/[&<>"']/g,ch=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[ch]));}
+function initials(name){return (name||"N").trim().slice(0,1).toUpperCase();}
+
+// INSCRIPTION
+const registerForm=document.getElementById("registerForm");
+registerForm.addEventListener("submit",async event=>{
+  event.preventDefault();const form=event.currentTarget;
+  const username=document.getElementById("registerUsername").value.trim();
+  const email=document.getElementById("registerEmail").value.trim();
+  const password=document.getElementById("registerPassword").value;
+  const confirmation=document.getElementById("confirmPassword").value;
+  if(password!==confirmation){showToast("Les deux mots de passe ne correspondent pas.");return;}
+  if(!/^[a-zA-Z0-9_]{3,24}$/.test(username)){showToast("Le pseudo doit contenir 3 à 24 caractères : lettres, chiffres ou _.");return;}
+  const button=form.querySelector("button[type='submit']");button.disabled=true;button.textContent="Création du compte…";
+  try{
+    const {data,error}=await noxaSupabase.auth.signUp({email,password,options:{emailRedirectTo:window.location.origin+window.location.pathname,data:{username,display_name:username}}});
+    if(error)throw error;closeAllModals();form.reset();
+    if(data.session){showToast("Bienvenue sur NOXA !");await refreshSession();}
+    else showToast("Compte créé ! Vérifie ta boîte e-mail pour confirmer ton inscription.");
+  }catch(error){showToast("Inscription impossible : "+error.message);}
+  finally{button.disabled=false;button.textContent="Créer mon compte";}
+});
+
+// CONNEXION
+const loginForm=document.getElementById("loginForm");
+loginForm.addEventListener("submit",async event=>{
+  event.preventDefault();const form=event.currentTarget;
+  const email=document.getElementById("loginEmail").value.trim();const password=document.getElementById("loginPassword").value;
+  const button=form.querySelector("button[type='submit']");button.disabled=true;button.textContent="Connexion…";
+  try{const {error}=await noxaSupabase.auth.signInWithPassword({email,password});if(error)throw error;closeAllModals();form.reset();showToast("Connexion réussie. Bienvenue !");await refreshSession();}
+  catch(error){showToast("Connexion impossible : "+error.message);}
+  finally{button.disabled=false;button.textContent="Se connecter";}
+});
+
+async function refreshSession(){
+  const {data,error}=await noxaSupabase.auth.getSession();if(error){console.error(error);return;}
+  currentUser=data.session?.user||null;
+  const area=document.getElementById("mon-espace");const nav=document.getElementById("memberNavLink");
+  if(!currentUser){area.classList.remove("visible");nav.style.display="none";return;}
+  nav.style.display="inline";area.classList.add("visible");
+  await loadMyProfile();await loadFeed();await loadMyStats();
+}
+async function loadMyProfile(){
+  if(!currentUser)return;
+  const {data,error}=await noxaSupabase.from("profiles").select("id,username,display_name,bio").eq("id",currentUser.id).maybeSingle();
+  if(error){console.error(error);showToast("Impossible de charger ton profil : "+error.message);return;}
+  currentProfile=data;
+  const name=data?.display_name||data?.username||currentUser.email?.split("@")[0]||"Membre";
+  document.getElementById("sideName").textContent=name;document.getElementById("sideHandle").textContent="@"+(data?.username||"membre");document.getElementById("sideAvatar").textContent=initials(name);
+  document.getElementById("profileDisplayName").value=data?.display_name||"";document.getElementById("profileBio").value=data?.bio||"";
+}
+
+// PUBLICATIONS
+const postForm=document.getElementById("postForm");
+postForm.addEventListener("submit",async event=>{
+  event.preventDefault();if(!currentUser){showToast("Connecte-toi pour publier.");return;}
+  const content=document.getElementById("postContent").value.trim();if(!content)return;
+  const button=postForm.querySelector("button");button.disabled=true;button.textContent="Publication…";
+  try{const {error}=await noxaSupabase.from("posts").insert({user_id:currentUser.id,content});if(error)throw error;postForm.reset();showToast("Publication ajoutée !");await loadFeed();await loadMyStats();}
+  catch(error){showToast("Publication impossible : "+error.message);}
+  finally{button.disabled=false;button.textContent="Publier ✦";}
+});
+
+async function loadFeed(){
+  const list=document.getElementById("feedList");if(!currentUser){list.innerHTML='<div class="empty-state">Connecte-toi pour découvrir le fil d’actualité.</div>';return;}
+  list.innerHTML='<div class="empty-state">Chargement du fil…</div>';
+  const {data:posts,error}=await noxaSupabase.from("posts").select('id,user_id,content,created_at,profiles(username,display_name),likes(user_id),comments(id,content,created_at,user_id,profiles(username,display_name))').order("created_at",{ascending:false}).limit(50);
+  if(error){list.innerHTML='<div class="empty-state">Le fil n’a pas pu être chargé. Vérifie la configuration SQL de NOXA.</div>';console.error(error);return;}
+  if(!posts?.length){list.innerHTML='<div class="empty-state">Aucune publication pour le moment. Sois la première personne à partager quelque chose ✦</div>';return;}
+  list.innerHTML=posts.map(post=>{
+    const author=post.profiles?.display_name||post.profiles?.username||"Membre NOXA";const liked=(post.likes||[]).some(like=>like.user_id===currentUser.id);
+    const comments=(post.comments||[]).map(comment=>`<div class="comment"><strong>@${safeText(comment.profiles?.username||"membre")}</strong> ${safeText(comment.content)}</div>`).join("");
+    return `<article class="post-card"><div class="post-top"><div class="avatar">${safeText(initials(author))}</div><div><strong>${safeText(author)}</strong><small>@${safeText(post.profiles?.username||"membre")} · ${new Date(post.created_at).toLocaleString("fr-FR")}</small></div></div><div class="post-body">${safeText(post.content)}</div><div class="post-actions"><button class="${liked?"liked":""}" onclick="toggleLike('${post.id}',${liked})">${liked?"♥":"♡"} ${post.likes?.length||0} J’aime</button><button onclick="document.getElementById('comment-${post.id}').focus()">💬 ${post.comments?.length||0} commentaires</button>${post.user_id===currentUser.id?`<button onclick="deletePost('${post.id}')">Supprimer</button>`:""}</div><div class="comment-list">${comments}</div><form class="comment-form" onsubmit="addComment(event,'${post.id}')"><input id="comment-${post.id}" maxlength="500" placeholder="Écrire un commentaire…" required><button type="submit">Envoyer</button></form></article>`;
+  }).join("");
+}
+async function toggleLike(postId,alreadyLiked){
+  try{if(alreadyLiked){const {error}=await noxaSupabase.from("likes").delete().eq("post_id",postId).eq("user_id",currentUser.id);if(error)throw error;}
+  else{const {error}=await noxaSupabase.from("likes").insert({post_id:postId,user_id:currentUser.id});if(error)throw error;}await loadFeed();await loadMyStats();}
+  catch(error){showToast("Action impossible : "+error.message);}
+}
+async function addComment(event,postId){
+  event.preventDefault();const input=document.getElementById("comment-"+postId);const content=input.value.trim();if(!content)return;
+  try{const {error}=await noxaSupabase.from("comments").insert({post_id:postId,user_id:currentUser.id,content});if(error)throw error;showToast("Commentaire publié.");await loadFeed();}
+  catch(error){showToast("Commentaire impossible : "+error.message);}
+}
+async function deletePost(postId){if(!confirm("Supprimer cette publication ?"))return;try{const {error}=await noxaSupabase.from("posts").delete().eq("id",postId);if(error)throw error;showToast("Publication supprimée.");await loadFeed();await loadMyStats();}catch(error){showToast("Suppression impossible : "+error.message);}}
+
+// PROFIL
+ document.getElementById("profileForm").addEventListener("submit",async event=>{
+  event.preventDefault();const display_name=document.getElementById("profileDisplayName").value.trim();const bio=document.getElementById("profileBio").value.trim();
+  try{const {error}=await noxaSupabase.from("profiles").update({display_name,bio}).eq("id",currentUser.id);if(error)throw error;showToast("Profil mis à jour.");await loadMyProfile();}
+  catch(error){showToast("Mise à jour impossible : "+error.message);}
+});
+async function loadMyStats(){
+  if(!currentUser)return;const {count:posts}=await noxaSupabase.from("posts").select("id",{count:"exact",head:true}).eq("user_id",currentUser.id);
+  const {data:mine}=await noxaSupabase.from("posts").select("id").eq("user_id",currentUser.id);let likes=0;
+  if(mine?.length){const ids=mine.map(item=>item.id);const {count}=await noxaSupabase.from("likes").select("id",{count:"exact",head:true}).in("post_id",ids);likes=count||0;}
+  document.getElementById("myPostCount").textContent=posts||0;document.getElementById("myLikeCount").textContent=likes;
+}
+function showMemberTab(tab,button){["feed","profile","about"].forEach(name=>document.getElementById(name+"Tab").hidden=name!==tab);document.querySelectorAll(".member-nav button").forEach(item=>item.classList.remove("active"));if(button)button.classList.add("active");}
+async function signOutNoxa(){const {error}=await noxaSupabase.auth.signOut();if(error){showToast("Déconnexion impossible : "+error.message);return;}currentUser=null;currentProfile=null;await refreshSession();showToast("Tu es déconnecté(e).");window.scrollTo({top:0,behavior:"smooth"});}
+function paymentMessage(){showToast("Les paiements NOXA ne sont pas encore activés.");}
+
+noxaSupabase.auth.onAuthStateChange((_event,session)=>{currentUser=session?.user||null;setTimeout(()=>refreshSession(),0);});
+refreshSession();
+</script>
+</body>
+</html>
